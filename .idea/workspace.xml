@@ -5,11 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d924dbb4-68fc-444c-806c-37298ccf602d" name="Changes" comment="feat: Initial commit&#10;&#10;Working game on console&#10;&#10;Signed-off-by: Jérémy Munsch &lt;github@jeremydev.ovh&gt;">
-      <change afterPath="$PROJECT_DIR$/lib/annotations-24.0.0-javadoc.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/annotations-24.0.0.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/commons-lang3-3.14.0-javadoc.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/commons-lang3-3.14.0-sources.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/commons-lang3-3.14.0.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Classes/Interfaces/EvaluateGame.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Classes/Lib/Games/BasicGame.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Classes/Controllers/GameController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Classes/Controllers/GameController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Classes/Views/GameView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Classes/Views/GameView.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -29,8 +29,20 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
     <option name="SIGN_OFF_COMMIT" value="true" />
   </component>
+  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
+  "lastFilter": {
+    "state": "OPEN",
+    "assignee": "Kwaadpepper"
+  }
+}]]></component>
+  <component name="GithubPullRequestsUISettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "url": "git@github.com:Kwaadpepper/OP-Cardgame.git",
+    "accountId": "97209aba-b34f-4410-81ca-56c4d9206fae"
+  }
+}]]></component>
   <component name="ProblemsViewState">
-    <option name="selectedTabId" value="CurrentFile" />
+    <option name="selectedTabId" value="DEPENDENCY_CHECKER_PROBLEMS_TAB" />
   </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 7
@@ -44,7 +56,7 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "Application.Main.executor": "Run",
-    "Application.Start Game.executor": "Run",
+    "Application.Start Game.executor": "Debug",
     "Downloaded.Files.Path.Enabled": "true",
     "Repository.Attach.Annotations": "false",
     "Repository.Attach.JavaDocs": "true",
@@ -140,8 +152,54 @@
       <option name="project" value="LOCAL" />
       <updated>1724772520575</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="feat: Initial commit&#10;&#10;Working game on console&#10;&#10;Signed-off-by: Jérémy Munsch &lt;github@jeremydev.ovh&gt;">
+      <option name="closed" value="true" />
+      <created>1724772540728</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1724772540728</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="RECENT_FILTERS">
+      <map>
+        <entry key="Branch">
+          <value>
+            <list>
+              <RecentGroup>
+                <option name="FILTER_VALUES">
+                  <option value="main" />
+                </option>
+              </RecentGroup>
+            </list>
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="main" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="feat: Initial commit&#10;&#10;Working game on console&#10;&#10;Signed-off-by: Jérémy Munsch &lt;github@jeremydev.ovh&gt;" />
@@ -153,5 +211,8 @@
         <PinnedItemInfo parentTag="Classes.Deck" memberName="pile" />
       </pinned-members>
     </pin-to-top-manager>
+  </component>
+  <component name="com.github.lppedd.cc.CommitBuilderDialog">
+    <shouldRemember>false</shouldRemember>
   </component>
 </project>
