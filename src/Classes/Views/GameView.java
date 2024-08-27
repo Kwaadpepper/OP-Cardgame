@@ -1,6 +1,5 @@
 package Classes.Views;
 
-import Classes.Controllers.Controller;
 import Classes.Controllers.GameController;
 
 public class GameView extends View<GameController> {
