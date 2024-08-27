@@ -2,6 +2,7 @@ package Classes.Controllers;
 
 import Classes.Card;
 import Classes.Deck;
+import Classes.Lib.Games.BasicGame;
 import Classes.Player;
 import Classes.Views.GameView;
 import org.jetbrains.annotations.NotNull;
@@ -95,6 +96,8 @@ public class GameController extends Controller<GameView> {
     }
 
     public void flipCards() {
+        BasicGame game = new BasicGame();
+
         for (Player player : players) {
             Card card = player.getCard(0);
             assert card != null;
@@ -103,8 +106,10 @@ public class GameController extends Controller<GameView> {
                 player.getId(), player.getName(),
                 card.getColor().name(), card.getValue().name()
             );
+            game.addParticipant(player, card);
         }
-        winner = evaluateWinner();
+
+        winner = game.evaluateWinner();
         state = GameState.WinnerRevealed;
         displayWinner();
         rebuildDeck();
