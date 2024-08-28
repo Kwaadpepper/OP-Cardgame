@@ -3,6 +3,7 @@ package Classes.Controllers;
 import Classes.Card;
 import Classes.Deck;
 import Classes.Interfaces.GameEvaluation;
+import Classes.Lib.Records.PlayersCard;
 import Classes.Player;
 import Classes.Views.GameView;
 import org.jetbrains.annotations.NotNull;
@@ -42,7 +43,6 @@ public class GameController extends Controller<GameView> {
         this.gameEvaluator = gameEvaluator;
         players = new ArrayList<>();
         state = GameState.AddingPlayers;
-        gameEvaluator.resetParticipants();
     }
 
     // --- METHODS ---
@@ -108,7 +108,7 @@ public class GameController extends Controller<GameView> {
     }
 
     public void flipCards() {
-        gameEvaluator.resetParticipants();
+        ArrayList<PlayersCard> cardsOnTable = new ArrayList<>(players.size());
 
         for (Player player : players) {
             Card card = player.getCard(0);
@@ -118,10 +118,10 @@ public class GameController extends Controller<GameView> {
                 player.getId(), player.getName(),
                 card.getColor().name(), card.getValue().name()
             );
-            gameEvaluator.addParticipant(player, card);
+            cardsOnTable.add(new PlayersCard(player, card));
         }
 
-        winner = gameEvaluator.evaluateWinner();
+        winner = gameEvaluator.evaluateWinner(cardsOnTable);
         state = GameState.WinnerRevealed;
         displayWinner();
         rebuildDeck();
