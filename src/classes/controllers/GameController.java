@@ -4,14 +4,14 @@ import classes.Card;
 import classes.Deck;
 import classes.Player;
 import classes.lib.records.PlayersCard;
-import classes.views.GameView;
+import classes.views.CommandLineView;
 import interfaces.GameEvaluation;
 import java.util.ArrayList;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
 /** The card game controller. */
-public class GameController extends Controller<GameView> {
+public class GameController extends Controller {
 
   /** The game evaluator to determine the winner. */
   final GameEvaluation gameEvaluator;
@@ -29,7 +29,7 @@ public class GameController extends Controller<GameView> {
   @Nullable Player winner = null;
 
   /** Main constructor. */
-  public GameController(GameView view, Deck deck, GameEvaluation gameEvaluator) {
+  public GameController(CommandLineView view, Deck deck, GameEvaluation gameEvaluator) {
     super(view);
     this.deck = deck;
     this.gameEvaluator = gameEvaluator;

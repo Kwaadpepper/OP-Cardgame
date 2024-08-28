@@ -4,12 +4,12 @@ import classes.views.View;
 import interfaces.controllers.Runnable;
 
 /** Base Controller. */
-public abstract class Controller<T extends View> implements Runnable {
+public abstract class Controller implements Runnable {
 
   /** The controller view. */
-  protected final T view;
+  protected final View view;
 
-  Controller(T view) {
+  Controller(View view) {
     this.view = view;
     view.setController(this);
   }

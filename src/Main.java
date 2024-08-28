@@ -1,7 +1,7 @@
 import classes.Deck;
 import classes.controllers.GameController;
 import classes.lib.games.BasicGameEvaluation;
-import classes.views.GameView;
+import classes.views.CommandLineView;
 import interfaces.GameEvaluation;
 
 /** Main classe for this program. */
@@ -12,7 +12,7 @@ public class Main {
     System.out.println("Welcome to gard game ! \n");
 
     GameEvaluation gameEvaluator = new BasicGameEvaluation();
-    GameController gc = new GameController(new GameView(), new Deck(), gameEvaluator);
+    GameController gc = new GameController(new CommandLineView(), new Deck(), gameEvaluator);
     gc.run();
   }
 }

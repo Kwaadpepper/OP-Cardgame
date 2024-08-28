@@ -1,9 +1,28 @@
 package classes.views;
 
+import classes.controllers.Controller;
 import classes.controllers.GameController;
+import java.util.NoSuchElementException;
+import java.util.Scanner;
+import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
 
 /** Console Game view. */
-public class GameView extends View<GameController> {
+public class CommandLineView extends View {
+
+  @Nullable private static Scanner scan = null;
+
+  /** The view controller. */
+  GameController controller;
+
+  /** Main Constructor. */
+  public CommandLineView() {
+    scan = new Scanner(System.in);
+  }
+
+  public void setController(Controller controller) {
+    this.controller = (GameController) controller;
+  }
 
   /** Prompt for a players name. */
   public void promptForPlayerName() {
@@ -17,7 +36,8 @@ public class GameView extends View<GameController> {
 
   /** Prompt user to flip cards. */
   public void promptForFlip() {
-    pressAnyKeyToFlipCards();
+    printMessage("Press enter to flip cards");
+    getNextLine();
     controller.flipCards();
   }
 
@@ -51,8 +71,42 @@ public class GameView extends View<GameController> {
     printMessage("%s[%s][%s]".formatted(formatPlayerInfo(playerId, playerName), rank, suit));
   }
 
+  /** Print a message to the user. */
+  public void printMessage(String message) {
+    System.out.println(message);
+  }
+
   /** Format the players info to display. */
   private String formatPlayerInfo(int playerId, String playerName) {
     return "[%d][%s]".formatted(playerId, playerName);
+  }
+
+  /** Prompt a user info. */
+  private @NotNull String promptFor(@NotNull String ask) {
+    @Nullable String nextLine = null;
+    while (nextLine == null) {
+      printMessage(ask);
+      nextLine = getNextLine();
+      if (nextLine == null) {
+        printMessage("You need to enter a value !");
+      }
+    }
+    return nextLine;
+  }
+
+  /** Get scanner next line. */
+  private @Nullable String getNextLine() {
+    try {
+      assert scan != null;
+      scan.reset();
+      String nextLine = scan.nextLine();
+      if (nextLine.isEmpty()) {
+        return null;
+      }
+      return nextLine;
+    } catch (NoSuchElementException e) {
+      System.out.println(e.getMessage());
+      return null;
+    }
   }
 }
