@@ -5,10 +5,13 @@ import Classes.Player;
 import org.jetbrains.annotations.NotNull;
 
 /** Allow to evaluate a game winner */
-public interface EvaluateGame {
+public interface GameEvaluation {
+    /** Reset participants list */
+    void resetParticipants();
+
     /** Add a participant */
-    public void addParticipant(@NotNull Player player, @NotNull Card card);
+    void addParticipant(@NotNull Player player, @NotNull Card card);
 
     /** Calculate the game winner */
-    public @NotNull Player evaluateWinner();
+    @NotNull Player evaluateWinner();
 }

@@ -4,12 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d924dbb4-68fc-444c-806c-37298ccf602d" name="Changes" comment="feat: Initial commit&#10;&#10;Working game on console&#10;&#10;Signed-off-by: Jérémy Munsch &lt;github@jeremydev.ovh&gt;">
-      <change afterPath="$PROJECT_DIR$/src/Classes/Interfaces/EvaluateGame.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Classes/Lib/Games/BasicGame.java" afterDir="false" />
+    <list default="true" id="d924dbb4-68fc-444c-806c-37298ccf602d" name="Changes" comment="chore: Update workspace file">
+      <change afterPath="$PROJECT_DIR$/src/Classes/Lib/Games/InvertedGame.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Classes/Controllers/GameController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Classes/Controllers/GameController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Classes/Views/GameView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Classes/Views/GameView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Classes/Interfaces/EvaluateGame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Classes/Interfaces/EvaluateGame.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Classes/Lib/Games/BasicGame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Classes/Lib/Games/BasicGame.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -30,10 +31,7 @@
     <option name="SIGN_OFF_COMMIT" value="true" />
   </component>
   <component name="GitHubPullRequestSearchHistory"><![CDATA[{
-  "lastFilter": {
-    "state": "OPEN",
-    "assignee": "Kwaadpepper"
-  }
+  "lastFilter": {}
 }]]></component>
   <component name="GithubPullRequestsUISettings"><![CDATA[{
   "selectedUrlAndAccountId": {
@@ -42,7 +40,7 @@
   }
 }]]></component>
   <component name="ProblemsViewState">
-    <option name="selectedTabId" value="DEPENDENCY_CHECKER_PROBLEMS_TAB" />
+    <option name="selectedTabId" value="CurrentFile" />
   </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 7
@@ -56,7 +54,7 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "Application.Main.executor": "Run",
-    "Application.Start Game.executor": "Debug",
+    "Application.Start Game.executor": "Run",
     "Downloaded.Files.Path.Enabled": "true",
     "Repository.Attach.Annotations": "false",
     "Repository.Attach.JavaDocs": "true",
@@ -160,7 +158,31 @@
       <option name="project" value="LOCAL" />
       <updated>1724772540728</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="fix: Remove unused dependency&#10;&#10;Remove an unused class dep in GameView">
+      <option name="closed" value="true" />
+      <created>1724778505856</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1724778505856</updated>
+    </task>
+    <task id="LOCAL-00011" summary="refactor: Move Game Evaluation system&#10;&#10;Move to separate files the game evaluation system">
+      <option name="closed" value="true" />
+      <created>1724778624074</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1724778624074</updated>
+    </task>
+    <task id="LOCAL-00012" summary="chore: Update workspace file">
+      <option name="closed" value="true" />
+      <created>1724778660686</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1724778660686</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -203,7 +225,10 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="feat: Initial commit&#10;&#10;Working game on console&#10;&#10;Signed-off-by: Jérémy Munsch &lt;github@jeremydev.ovh&gt;" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat: Initial commit&#10;&#10;Working game on console&#10;&#10;Signed-off-by: Jérémy Munsch &lt;github@jeremydev.ovh&gt;" />
+    <MESSAGE value="fix: Remove unused dependency&#10;&#10;Remove an unused class dep in GameView" />
+    <MESSAGE value="refactor: Move Game Evaluation system&#10;&#10;Move to separate files the game evaluation system" />
+    <MESSAGE value="chore: Update workspace file" />
+    <option name="LAST_COMMIT_MESSAGE" value="chore: Update workspace file" />
   </component>
   <component name="XDebuggerManager">
     <pin-to-top-manager>

@@ -2,7 +2,7 @@ package Classes.Controllers;
 
 import Classes.Card;
 import Classes.Deck;
-import Classes.Lib.Games.BasicGame;
+import Classes.Interfaces.GameEvaluation;
 import Classes.Player;
 import Classes.Views.GameView;
 import org.jetbrains.annotations.NotNull;
@@ -13,6 +13,7 @@ import java.util.ArrayList;
 /** The card game controller */
 public class GameController extends Controller<GameView> {
 
+    /** Game state steps */
     enum GameState {
         AddingPlayers,
         CardBattle,
@@ -20,17 +21,28 @@ public class GameController extends Controller<GameView> {
         ClosingGame
     }
 
+    /** The game evaluator to determine the winner */
+    GameEvaluation gameEvaluator;
+
     /** The game deck */
     Deck deck;
+
+    /** The players */
     ArrayList<Player> players;
+
+    /** The game actual state */
     GameState state;
+
+    /** Winner for the game */
     @Nullable Player winner = null;
 
-    public GameController(GameView view, Deck deck) {
+    public GameController(GameView view, Deck deck, GameEvaluation gameEvaluator) {
         super(view);
         this.deck = deck;
+        this.gameEvaluator = gameEvaluator;
         players = new ArrayList<>();
         state = GameState.AddingPlayers;
+        gameEvaluator.resetParticipants();
     }
 
     // --- METHODS ---
@@ -96,7 +108,7 @@ public class GameController extends Controller<GameView> {
     }
 
     public void flipCards() {
-        BasicGame game = new BasicGame();
+        gameEvaluator.resetParticipants();
 
         for (Player player : players) {
             Card card = player.getCard(0);
@@ -106,45 +118,13 @@ public class GameController extends Controller<GameView> {
                 player.getId(), player.getName(),
                 card.getColor().name(), card.getValue().name()
             );
-            game.addParticipant(player, card);
+            gameEvaluator.addParticipant(player, card);
         }
 
-        winner = game.evaluateWinner();
+        winner = gameEvaluator.evaluateWinner();
         state = GameState.WinnerRevealed;
         displayWinner();
         rebuildDeck();
-    }
-
-    /** Evaluate the player that wins the game */
-    private @NotNull Player evaluateWinner() {
-
-        class PlayersCard {
-            final Player player;
-            final Card   card;
-
-            PlayersCard(Player player, Card card) {
-                this.player = player;
-                this.card = card;
-            }
-        }
-
-        ArrayList<PlayersCard> tablePlayersCards = new ArrayList<>(4);
-        for (Player player : players) {
-            tablePlayersCards.add(new PlayersCard(player, player.getCard(0)));
-        }
-
-        /* Sort table cards : Compare values */
-        tablePlayersCards.sort((PlayersCard a, PlayersCard b) -> {
-            int cmp = b.card.getValue().value() - a.card.getValue().value();
-            /* If ranks are equals */
-            if (cmp == 0) {
-                /* then sort by colors */
-                return b.card.getColor().value() - a.card.getColor().value();
-            }
-            return cmp;
-        });
-
-        return tablePlayersCards.getFirst().player;
     }
 
     /** Displays the winner */
