@@ -68,6 +68,11 @@
     "settings.editor.selected.configurable": "vcs.Git"
   }
 }]]></component>
+  <component name="RecentsManager">
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="Classes.Lib.Games" />
+    </key>
+  </component>
   <component name="RunManager">
     <configuration name="Start Game" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="Main" />
