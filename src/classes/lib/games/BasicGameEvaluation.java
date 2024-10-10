@@ -1,6 +1,6 @@
 package classes.lib.games;
 
-import classes.Player;
+import classes.lib.players.Player;
 import classes.lib.records.PlayersCard;
 import interfaces.GameEvaluation;
 import java.util.ArrayList;

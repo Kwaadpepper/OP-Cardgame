@@ -8,7 +8,7 @@ public class PlayerHand {
 
   private final ArrayList<Card> cards;
 
-  PlayerHand() {
+  public PlayerHand() {
     cards = new ArrayList<>();
   }
 

@@ -1,6 +1,6 @@
 package interfaces;
 
-import classes.Player;
+import classes.lib.players.Player;
 import classes.lib.records.PlayersCard;
 import java.util.ArrayList;
 import org.jetbrains.annotations.NotNull;

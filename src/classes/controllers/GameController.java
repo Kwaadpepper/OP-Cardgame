@@ -1,7 +1,9 @@
 package classes.controllers;
 
 import classes.Card;
-import classes.Player;
+import classes.lib.players.Player;
+import classes.lib.players.PlayerImpl;
+import classes.lib.players.Winner;
 import classes.lib.records.PlayersCard;
 import interfaces.Deck;
 import interfaces.GameEvaluation;
@@ -84,7 +86,7 @@ public class GameController extends Controller {
         return;
       }
 
-      Player player = new Player(playersName);
+      final var player = new PlayerImpl(playersName);
       players.add(player);
       view.showPlayerName(player.getId(), player.getName());
     }
@@ -123,7 +125,7 @@ public class GameController extends Controller {
       cardsOnTable.add(new PlayersCard(player, card));
     }
 
-    winner = gameEvaluator.evaluateWinner(cardsOnTable);
+    winner = Winner.of(gameEvaluator.evaluateWinner(cardsOnTable));
     state = GameState.WinnerRevealed;
     displayWinner();
     rebuildDeck();

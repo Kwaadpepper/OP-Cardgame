@@ -1,9 +1,11 @@
-package classes;
+package classes.lib.players;
 
+import classes.Card;
+import classes.PlayerHand;
 import org.jetbrains.annotations.Nullable;
 
 /** A game player. */
-public class Player {
+public class PlayerImpl implements Player {
 
   /** The amount of game players. */
   static int playerCount = 0;
@@ -17,33 +19,33 @@ public class Player {
   private final String name;
 
   /** Main constructor. */
-  public Player(String name) {
+  public PlayerImpl(String name) {
     this.name = name;
     hand = new PlayerHand();
-    id = Player.playerCount++;
+    id = PlayerImpl.playerCount++;
   }
 
-  /** Add a card to players hand. */
+  @Override
   public void addCardToHand(Card card) {
     hand.addCard(card);
   }
 
-  /** Get a card from the players hand. */
+  @Override
   public @Nullable Card getCard(int index) {
     return hand.getCard(index);
   }
 
-  /** Remove a card from players hand. */
+  @Override
   public void removeCard(int index) {
     hand.removeCard(index);
   }
 
-  /** Get the players ID. */
+  @Override
   public int getId() {
     return id;
   }
 
-  /** Get the players name. */
+  @Override
   public String getName() {
     return name;
   }
