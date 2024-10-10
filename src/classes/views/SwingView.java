@@ -46,17 +46,12 @@ public class SwingView extends View implements GameViewable {
     if (playerName != null && !playerName.isEmpty()) {
       controller.addPlayer(playerName);
     }
-
-    //    int addMore = JOptionPane.showConfirmDialog(frame, "Add more players ?", "More players",
-    // JOptionPane.YES_NO_OPTION);
-    //    if( addMore == JOptionPane.NO_OPTION) {
-    //      controller.startGame();
-    //    }
   }
 
   /** Prompt user to flip cards. */
   public void promptForFlip() {
-    JOptionPane.showConfirmDialog(frame, "Click to reveal cards", "And....", JOptionPane.OK_OPTION);
+    JOptionPane.showConfirmDialog(
+        frame, "Click to reveal cards", "And....", JOptionPane.DEFAULT_OPTION);
     controller.flipCards();
   }
 
@@ -66,10 +61,10 @@ public class SwingView extends View implements GameViewable {
         JOptionPane.showConfirmDialog(
             frame, "Play again ?", "Play again", JOptionPane.YES_NO_OPTION);
     if (newGame == JOptionPane.NO_OPTION) {
-      controller.startGame();
-    } else {
       controller.closeGame();
+      return;
     }
+    controller.startGame();
   }
 
   /** Display the winners name. */
