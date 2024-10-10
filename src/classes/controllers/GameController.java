@@ -13,6 +13,9 @@ import org.jetbrains.annotations.Nullable;
 /** The card game controller. */
 public class GameController extends Controller {
 
+  private static final int minPlayerAmount = 2;
+  private static final int maxPlayerAmount = 5;
+
   /** The game evaluator to determine the winner. */
   final GameEvaluation gameEvaluator;
 
@@ -44,10 +47,15 @@ public class GameController extends Controller {
       int previousPlayerAmount = players.size();
       view.promptForPlayerName();
       /* Need at least two players */
-      if (players.size() >= 2
+      if (canStartTheGame()
           /* Unchanged amount of players  ||  Max 5 players */
-          && (previousPlayerAmount == players.size() || players.size() > 4)) {
+          && previousPlayerAmount == players.size()) {
         startGame();
+      }
+      if (players.size() < minPlayerAmount) {
+        view.printMessage(
+            "Need at least %d more players to run the game"
+                .formatted(minPlayerAmount - players.size()));
       }
     }
 
@@ -142,8 +150,12 @@ public class GameController extends Controller {
     }
   }
 
+  private boolean canStartTheGame() {
+    return players.size() == maxPlayerAmount || players.size() >= minPlayerAmount;
+  }
+
   /** Game state steps. */
-  enum GameState {
+  private enum GameState {
     AddingPlayers,
     CardBattle,
     WinnerRevealed,
