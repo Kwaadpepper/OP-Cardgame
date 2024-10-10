@@ -1,5 +1,6 @@
 package frames;
 
+import javax.swing.BoxLayout;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
@@ -14,7 +15,9 @@ public class GameFrame extends JFrame {
 
   public GameFrame(String title) {
     super(title);
-    textArea.setSize(500, 500);
+    panel.setLayout(new BoxLayout(panel, BoxLayout.Y_AXIS));
+    this.add(scrollPane);
+    this.setVisible(true);
   }
 
   /** Add text. */
