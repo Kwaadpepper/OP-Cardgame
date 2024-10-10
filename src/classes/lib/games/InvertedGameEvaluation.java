@@ -1,8 +1,8 @@
 package classes.lib.games;
 
-import classes.lib.players.Player;
 import classes.lib.records.PlayersCard;
 import interfaces.GameEvaluation;
+import interfaces.lib.players.Player;
 import java.util.ArrayList;
 import org.jetbrains.annotations.NotNull;
 

@@ -5,10 +5,9 @@ import interfaces.views.GameViewable;
 import java.awt.Container;
 import javax.swing.BoxLayout;
 import javax.swing.JFrame;
-import javax.swing.JOptionPane;
 
 /** For the game to be viewed in a Swing Interface. */
-public class SwingView extends View implements GameViewable {
+public class SwingPassiveView extends View implements GameViewable {
 
   /** View frame. */
   GameFrame frame;
@@ -29,33 +28,17 @@ public class SwingView extends View implements GameViewable {
 
   @Override
   public void promptForPlayerName() {
-    String playerName =
-        (String)
-            JOptionPane.showInputDialog(
-                frame, "Add a player", "Player", JOptionPane.PLAIN_MESSAGE, null, null, "");
-
-    if (playerName != null && !playerName.isEmpty()) {
-      controller.addPlayer(playerName);
-    }
+    printMessage("Waiting for player name ...");
   }
 
   @Override
   public void promptForFlip() {
-    JOptionPane.showConfirmDialog(
-        frame, "Click to reveal cards", "And....", JOptionPane.DEFAULT_OPTION);
-    controller.flipCards();
+    printMessage("Waiting for flipping cards ...");
   }
 
   @Override
   public void promptForNewGame() {
-    int newGame =
-        JOptionPane.showConfirmDialog(
-            frame, "Play again ?", "Play again", JOptionPane.YES_NO_OPTION);
-    if (newGame == JOptionPane.NO_OPTION) {
-      controller.closeGame();
-      return;
-    }
-    controller.startGame();
+    printMessage("Waiting for next step ...");
   }
 
   @Override

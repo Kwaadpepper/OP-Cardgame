@@ -1,7 +1,5 @@
 package classes.views;
 
-import classes.controllers.Controller;
-import classes.controllers.GameController;
 import java.util.NoSuchElementException;
 import java.util.Scanner;
 import org.jetbrains.annotations.NotNull;
@@ -12,19 +10,12 @@ public class CommandLineView extends View {
 
   @Nullable private static Scanner scan = null;
 
-  /** The view controller. */
-  GameController controller;
-
-  /** Main Constructor. */
-  public CommandLineView() {
+  @Override
+  public void createAndDisplayGui() {
     scan = new Scanner(System.in);
   }
 
-  public void setController(Controller controller) {
-    this.controller = (GameController) controller;
-  }
-
-  /** Prompt for a players name. */
+  @Override
   public void promptForPlayerName() {
     printMessage("Enter 'x' and press enter to skip adding players anytime..");
     String playerName = promptFor("Enter player's name");
@@ -34,14 +25,14 @@ public class CommandLineView extends View {
     }
   }
 
-  /** Prompt user to flip cards. */
+  @Override
   public void promptForFlip() {
     printMessage("Press enter to flip cards");
     getNextLine();
     controller.flipCards();
   }
 
-  /** Prompt the user to battle again. */
+  @Override
   public void promptForNewGame() {
     String ask = promptFor("New Game [y/n] ?");
     if (ask.toLowerCase().startsWith("y")) {
@@ -51,27 +42,27 @@ public class CommandLineView extends View {
     }
   }
 
-  /** Display the winners name. */
+  @Override
   public void showWinner(String playerName) {
     printMessage("And the winner is ..... %s !".formatted(playerName));
   }
 
-  /** Show a players name. */
+  @Override
   public void showPlayerName(int playerId, String playerName) {
     printMessage(formatPlayerInfo(playerId, playerName));
   }
 
-  /** Show cards faced down for a player. */
+  @Override
   public void showPlayerCardFacedDown(int playerId, String playerName) {
     printMessage("%s[x][x]".formatted(formatPlayerInfo(playerId, playerName)));
   }
 
-  /** Show cards faced up for a player. */
+  @Override
   public void showPlayerCardFacedUp(int playerId, String playerName, String rank, String suit) {
     printMessage("%s[%s][%s]".formatted(formatPlayerInfo(playerId, playerName), rank, suit));
   }
 
-  /** Print a message to the user. */
+  @Override
   public void printMessage(String message) {
     System.out.println(message);
   }

@@ -1,4 +1,4 @@
-package classes.lib.players;
+package interfaces.lib.players;
 
 import classes.Card;
 import org.jetbrains.annotations.Nullable;

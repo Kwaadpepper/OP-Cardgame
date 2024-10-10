@@ -1,62 +1,67 @@
 package classes.views;
 
-import classes.controllers.Controller;
+import classes.controllers.GameController;
 import interfaces.views.GameViewable;
 import java.util.HashSet;
 import java.util.Set;
 
 /** Manage multiple views simultaneously. */
-public class CompositeGameViewable implements interfaces.views.GameViewable {
-  private final Set<interfaces.views.GameViewable> viewable;
+public class CompositeGameViewable extends View {
+  private final Set<View> viewableSet;
 
-  public CompositeGameViewable(Set<interfaces.views.GameViewable> viewable) {
-    this.viewable = new HashSet<>(viewable);
+  public CompositeGameViewable(Set<View> viewableSet) {
+    this.viewableSet = new HashSet<>(viewableSet);
   }
 
   @Override
-  public void setController(final Controller controller) {
-    viewable.forEach(gameViewable -> gameViewable.setController(controller));
+  public void setController(GameController controller) {
+    viewableSet.forEach(viewable -> viewable.setController(controller));
+  }
+
+  @Override
+  public void createAndDisplayGui() {
+    viewableSet.forEach(View::createAndDisplayGui);
   }
 
   @Override
   public void promptForPlayerName() {
-    viewable.forEach(GameViewable::promptForPlayerName);
+    viewableSet.forEach(GameViewable::promptForPlayerName);
   }
 
   @Override
   public void promptForFlip() {
-    viewable.forEach(GameViewable::promptForFlip);
+    viewableSet.forEach(GameViewable::promptForFlip);
   }
 
   @Override
   public void promptForNewGame() {
-    viewable.forEach(GameViewable::promptForNewGame);
+    viewableSet.forEach(GameViewable::promptForNewGame);
   }
 
   @Override
   public void showWinner(final String playerName) {
-    viewable.forEach(gameViewable -> gameViewable.showWinner(playerName));
+    viewableSet.forEach(viewable -> viewable.showWinner(playerName));
   }
 
   @Override
   public void showPlayerName(final int playerId, final String playerName) {
-    viewable.forEach(gameViewable -> gameViewable.showPlayerName(playerId, playerName));
+    viewableSet.forEach(viewable -> viewable.showPlayerName(playerId, playerName));
   }
 
   @Override
   public void showPlayerCardFacedDown(final int playerId, final String playerName) {
-    viewable.forEach(gameViewable -> gameViewable.showPlayerCardFacedDown(playerId, playerName));
+    viewableSet.forEach(viewable -> viewable.showPlayerCardFacedDown(playerId, playerName));
   }
 
   @Override
   public void showPlayerCardFacedUp(
       final int playerId, final String playerName, final String rank, final String suit) {
-    viewable.forEach(
-        gameViewable -> gameViewable.showPlayerCardFacedUp(playerId, playerName, rank, suit));
+    viewableSet.forEach(
+        viewable -> viewable.showPlayerCardFacedUp(playerId, playerName, rank, suit));
   }
 
   @Override
   public void printMessage(final String message) {
-    viewable.forEach(gameViewable -> gameViewable.printMessage(message));
+    viewableSet.forEach(viewable -> viewable.printMessage(message));
   }
 }

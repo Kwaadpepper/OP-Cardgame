@@ -2,6 +2,7 @@ package classes.lib.players;
 
 import classes.Card;
 import classes.PlayerHand;
+import interfaces.lib.players.Player;
 import org.jetbrains.annotations.Nullable;
 
 /** A game player. */

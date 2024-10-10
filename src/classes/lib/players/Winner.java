@@ -1,6 +1,7 @@
 package classes.lib.players;
 
 import classes.Card;
+import interfaces.lib.players.Player;
 import org.jetbrains.annotations.Nullable;
 
 /** Player that won a game. */
