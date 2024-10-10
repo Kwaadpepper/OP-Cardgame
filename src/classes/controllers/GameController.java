@@ -1,11 +1,11 @@
 package classes.controllers;
 
 import classes.Card;
-import classes.Deck;
 import classes.Player;
 import classes.lib.records.PlayersCard;
-import classes.views.CommandLineView;
+import interfaces.Deck;
 import interfaces.GameEvaluation;
+import interfaces.views.GameViewable;
 import java.util.ArrayList;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
@@ -29,7 +29,7 @@ public class GameController extends Controller {
   @Nullable Player winner = null;
 
   /** Main constructor. */
-  public GameController(CommandLineView view, Deck deck, GameEvaluation gameEvaluator) {
+  public GameController(GameViewable view, Deck deck, GameEvaluation gameEvaluator) {
     super(view);
     this.deck = deck;
     this.gameEvaluator = gameEvaluator;

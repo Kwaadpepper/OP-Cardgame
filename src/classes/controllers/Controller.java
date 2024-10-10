@@ -1,15 +1,15 @@
 package classes.controllers;
 
-import classes.views.View;
 import interfaces.controllers.Runnable;
+import interfaces.views.GameViewable;
 
 /** Base Controller. */
 public abstract class Controller implements Runnable {
 
   /** The controller view. */
-  protected final View view;
+  protected final GameViewable view;
 
-  Controller(View view) {
+  Controller(GameViewable view) {
     this.view = view;
     view.setController(this);
   }

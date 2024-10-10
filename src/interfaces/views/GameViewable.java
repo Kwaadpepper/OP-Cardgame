@@ -1,7 +1,12 @@
 package interfaces.views;
 
+import classes.controllers.Controller;
+
 /** For the game to be viewed. */
 public interface GameViewable {
+  /** Set the view controller. */
+  void setController(Controller controller);
+
   /** Prompt for a players name. */
   void promptForPlayerName();
 

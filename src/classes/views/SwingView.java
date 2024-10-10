@@ -2,22 +2,34 @@ package classes.views;
 
 import classes.controllers.Controller;
 import classes.controllers.GameController;
-import java.util.NoSuchElementException;
-import java.util.Scanner;
-import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
+import frames.GameFrame;
+import interfaces.views.GameViewable;
+import java.awt.Container;
+import javax.swing.BoxLayout;
+import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 
-/** Console Game view. */
-public class CommandLineView extends View {
-
-  @Nullable private static Scanner scan = null;
+/** For the game to be viewed in a Swing Interface. */
+public class SwingView extends View implements GameViewable {
 
   /** The view controller. */
   GameController controller;
 
-  /** Main Constructor. */
-  public CommandLineView() {
-    scan = new Scanner(System.in);
+  /** View frame. */
+  GameFrame frame;
+
+  /** Pubic constructor. */
+  public SwingView() {
+    // create main frame
+    frame = new GameFrame("MVC-SOLID-Game");
+    frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+    frame.setSize(500, 500);
+
+    // display vertically
+    Container contentPane = frame.getContentPane();
+    contentPane.setLayout(new BoxLayout(contentPane, BoxLayout.Y_AXIS));
+
+    frame.setVisible(true);
   }
 
   public void setController(Controller controller) {
@@ -26,25 +38,34 @@ public class CommandLineView extends View {
 
   /** Prompt for a players name. */
   public void promptForPlayerName() {
-    printMessage("Enter 'x' and press enter to skip adding players anytime..");
-    String playerName = promptFor("Enter player's name");
+    String playerName =
+        (String)
+            JOptionPane.showInputDialog(
+                frame, "Add a player", "Player", JOptionPane.PLAIN_MESSAGE, null, null, "");
 
-    if (!playerName.equals("x")) {
+    if (playerName != null && !playerName.isEmpty()) {
       controller.addPlayer(playerName);
     }
+
+    //    int addMore = JOptionPane.showConfirmDialog(frame, "Add more players ?", "More players",
+    // JOptionPane.YES_NO_OPTION);
+    //    if( addMore == JOptionPane.NO_OPTION) {
+    //      controller.startGame();
+    //    }
   }
 
   /** Prompt user to flip cards. */
   public void promptForFlip() {
-    printMessage("Press enter to flip cards");
-    getNextLine();
+    JOptionPane.showConfirmDialog(frame, "Click to reveal cards", "And....", JOptionPane.OK_OPTION);
     controller.flipCards();
   }
 
   /** Prompt the user to battle again. */
   public void promptForNewGame() {
-    String ask = promptFor("New Game [y/n] ?");
-    if (ask.toLowerCase().startsWith("y")) {
+    int newGame =
+        JOptionPane.showConfirmDialog(
+            frame, "Play again ?", "Play again", JOptionPane.YES_NO_OPTION);
+    if (newGame == JOptionPane.NO_OPTION) {
       controller.startGame();
     } else {
       controller.closeGame();
@@ -73,35 +94,6 @@ public class CommandLineView extends View {
 
   /** Print a message to the user. */
   public void printMessage(String message) {
-    System.out.println(message);
-  }
-
-  /** Prompt a user info. */
-  private @NotNull String promptFor(@NotNull String ask) {
-    @Nullable String nextLine = null;
-    while (nextLine == null) {
-      printMessage(ask);
-      nextLine = getNextLine();
-      if (nextLine == null) {
-        printMessage("You need to enter a value !");
-      }
-    }
-    return nextLine;
-  }
-
-  /** Get scanner next line. */
-  private @Nullable String getNextLine() {
-    try {
-      assert scan != null;
-      scan.reset();
-      String nextLine = scan.nextLine();
-      if (nextLine.isEmpty()) {
-        return null;
-      }
-      return nextLine;
-    } catch (NoSuchElementException e) {
-      System.out.println(e.getMessage());
-      return null;
-    }
+    frame.appendText(message);
   }
 }

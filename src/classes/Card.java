@@ -14,7 +14,7 @@ public class Card {
   /** Si la carte est face cachée. */
   private boolean hidden = true;
 
-  Card(Suit color, Rank value) {
+  public Card(Suit color, Rank value) {
     this.suit = color;
     this.rank = value;
   }
