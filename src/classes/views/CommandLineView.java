@@ -2,13 +2,11 @@ package classes.views;
 
 import java.util.NoSuchElementException;
 import java.util.Scanner;
-import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
 
 /** Console Game view. */
 public class CommandLineView extends View {
 
-  @Nullable private static Scanner scan = null;
+  private static Scanner scan = null;
 
   @Override
   public void createAndDisplayGui() {
@@ -68,8 +66,8 @@ public class CommandLineView extends View {
   }
 
   /** Prompt a user info. */
-  private @NotNull String promptFor(@NotNull String ask) {
-    @Nullable String nextLine = null;
+  private String promptFor(String ask) {
+    String nextLine = null;
     while (nextLine == null) {
       printMessage(ask);
       nextLine = getNextLine();
@@ -81,7 +79,7 @@ public class CommandLineView extends View {
   }
 
   /** Get scanner next line. */
-  private @Nullable String getNextLine() {
+  private String getNextLine() {
     try {
       assert scan != null;
       scan.reset();

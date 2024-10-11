@@ -3,8 +3,6 @@ package classes;
 import interfaces.Deck;
 import java.util.Random;
 import org.apache.commons.lang3.ArrayUtils;
-import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
 
 /** A game deck with 52 playing cards. */
 public class Deck32Cards implements Deck {
@@ -21,7 +19,7 @@ public class Deck32Cards implements Deck {
 
   /** Pick a card. */
   @Override
-  public @Nullable Card pickCard() {
+  public Card pickCard() {
     if (pile.length < 1) {
       return null;
     }
@@ -32,7 +30,7 @@ public class Deck32Cards implements Deck {
 
   /** Return a card below the pile. */
   @Override
-  public void returnCard(@NotNull Card card) {
+  public void returnCard(Card card) {
     pile = ArrayUtils.add(pile, card);
   }
 

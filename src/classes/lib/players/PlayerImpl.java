@@ -3,7 +3,6 @@ package classes.lib.players;
 import classes.Card;
 import classes.PlayerHand;
 import interfaces.lib.players.Player;
-import org.jetbrains.annotations.Nullable;
 
 /** A game player. */
 public class PlayerImpl implements Player {
@@ -32,7 +31,7 @@ public class PlayerImpl implements Player {
   }
 
   @Override
-  public @Nullable Card getCard(int index) {
+  public Card getCard(int index) {
     return hand.getCard(index);
   }
 

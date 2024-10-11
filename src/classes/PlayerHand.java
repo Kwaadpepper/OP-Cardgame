@@ -1,7 +1,6 @@
 package classes;
 
 import java.util.ArrayList;
-import org.jetbrains.annotations.Nullable;
 
 /** La main d'un joueur contenant ses cartes. */
 public class PlayerHand {
@@ -20,7 +19,7 @@ public class PlayerHand {
   }
 
   /** Remove a card at index. */
-  public @Nullable Card getCard(int index) {
+  public Card getCard(int index) {
     if (cards.isEmpty()) {
       return null;
     }

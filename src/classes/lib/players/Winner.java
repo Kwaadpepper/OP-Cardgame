@@ -2,7 +2,6 @@ package classes.lib.players;
 
 import classes.Card;
 import interfaces.lib.players.Player;
-import org.jetbrains.annotations.Nullable;
 
 /** Player that won a game. */
 public class Winner implements Player {
@@ -22,7 +21,7 @@ public class Winner implements Player {
   }
 
   @Override
-  public @Nullable Card getCard(final int index) {
+  public Card getCard(final int index) {
     return player.getCard(index);
   }
 

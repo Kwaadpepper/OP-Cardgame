@@ -1,7 +1,6 @@
 package interfaces.lib.players;
 
 import classes.Card;
-import org.jetbrains.annotations.Nullable;
 
 /** A game player. */
 public interface Player {
@@ -9,7 +8,6 @@ public interface Player {
   void addCardToHand(Card card);
 
   /** Get a card from the players hand. */
-  @Nullable
   Card getCard(int index);
 
   /** Remove a card from players hand. */

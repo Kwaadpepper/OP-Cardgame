@@ -4,13 +4,12 @@ import classes.lib.records.PlayersCard;
 import interfaces.GameEvaluation;
 import interfaces.lib.players.Player;
 import java.util.ArrayList;
-import org.jetbrains.annotations.NotNull;
 
 /** Ths is the inverse of BasicGameEvaluation rules. */
 public class InvertedGameEvaluation implements GameEvaluation {
 
   /** Calculate the game winner. */
-  public @NotNull Player evaluateWinner(ArrayList<PlayersCard> playersCards) {
+  public Player evaluateWinner(ArrayList<PlayersCard> playersCards) {
     final ArrayList<PlayersCard> tablePlayersCards = new ArrayList<>(playersCards);
 
     /* Sort table cards : Compare values */

@@ -9,8 +9,6 @@ import interfaces.Deck;
 import interfaces.GameEvaluation;
 import interfaces.lib.players.Player;
 import java.util.ArrayList;
-import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
 
 /** The card game controller. */
 public class GameController extends Controller {
@@ -31,7 +29,7 @@ public class GameController extends Controller {
   GameState state;
 
   /** Winner for the game. */
-  @Nullable Player winner = null;
+  Player winner = null;
 
   /** Main constructor. */
   public GameController(View view, Deck deck, GameEvaluation gameEvaluator) {
@@ -79,7 +77,7 @@ public class GameController extends Controller {
   // --- METHODS ---
 
   /** Add a player to the game. */
-  public void addPlayer(@NotNull String playersName) {
+  public void addPlayer(String playersName) {
     if (state.equals(GameState.AddingPlayers)) {
 
       if (players.stream().anyMatch((player -> player.getName().equals(playersName)))) {
@@ -143,7 +141,7 @@ public class GameController extends Controller {
     winner = null;
     for (Player player : players) {
       int i = 0;
-      @Nullable Card card = player.getCard(i);
+      Card card = player.getCard(i);
       player.removeCard(i++);
       while (card != null) {
         deck.returnCard(card);
